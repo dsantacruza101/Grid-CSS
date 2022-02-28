@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.grid-layout{
+    background: rgb(77, 134, 138);
+    height: 100vh;
+    display: grid;
+    /* grid-template-columns: 70% auto; indica cuantas columnas queremos en el documento */
+    /* grid-template-rows: 10% 7% 73% 10%; indica el tamano de las filas que tendra en el body */
+    /* grid-gap: 5px 5px; indica la separacion que tendra entre la columna y la fila */
+
+    /* NOTA IMPORTANTE */
+    /* para poder usar grid-template-areas no es necesario indicar grid-column */
+
+    grid-template-areas: 'header header'
+                         'menu menu'
+                         'contenido seccion'
+                         'footer footer';
+    grid-template-rows: 15% 10% auto 15%;
+    grid-template-columns: 70% auto;
+}
+
+.header{
+    /* grid-column: 1 / span 2; indica las columnas que tendra en el body */
+    background: rosybrown;
+    grid-area: header; /* para poder usar grid-template-areas, se debe de colocar un identificador al div  */
+}
+.menu{
+    /* grid-column: 1 / span 2; indica las columnas que tendra en el body */
+    /* grid-row: 1 / span 2; indica las filas que tendra en el documento */
+    background: royalblue;
+    grid-area: menu;
+}
+.contenido{
+    background: slateblue;
+    grid-area: contenido;
+}
+
+.seccion{
+    background: tomato;
+    grid-area: seccion;
+}
+
+.footer{
+    /* grid-column: 1 / span 2; indica las columnas que tendra en el body */
+    background: violet;
+    grid-area: footer;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait){
+    .grid-layout{
+        grid-template-areas: 'header header'
+                             'menu menu'
+                             'contenido contenido'
+                             'seccion seccion'
+                             'footer footer';
+        grid-template-rows: 10% 8% auto 25% 10%;
+    }
+
+}
